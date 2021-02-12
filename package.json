@@ -1,0 +1,8 @@
+{
+  "name": "lambda-middleware",
+  "version": "1.0.0",
+  "description": "Express like middlewares for AWS lambdas",
+  "main": "index.js",
+  "author": "Charles Victor Conner",
+  "license": "MIT"
+}
