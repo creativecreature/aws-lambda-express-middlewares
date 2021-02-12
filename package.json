@@ -10,9 +10,10 @@
     "build": "scripty"
   },
   "scripty": {
-      "path": "./scripts"
+    "path": "./scripts"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.72",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "eslint": "^7.19.0",

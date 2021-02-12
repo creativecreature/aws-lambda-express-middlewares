@@ -1,5 +1,2 @@
-const main = () => {
-  console.log('main')
-}
-
-export default main
+export * from './types'
+export * from './withMiddlewares'
