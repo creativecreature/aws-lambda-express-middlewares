@@ -1,5 +1,5 @@
 {
-  "name": "aws-lambda-middleware",
+  "name": "lambda-express-middlewares",
   "version": "1.0.0",
   "description": "Express like middlewares for AWS lambdas",
   "author": "Charles Victor Conner",
@@ -18,10 +18,10 @@
   "scripty": {
     "path": "./scripts"
   },
-  "website": "https://github.com/creativecreature/aws-lambda-middleware",
+  "website": "https://github.com/creativecreature/lambda-express-middlewares",
   "repository": {
     "type": "git",
-    "url": "https://github.com/creativecreature/aws-lambda-middleware.git"
+    "url": "https://github.com/creativecreature/lambda-express-middlewares.git"
   },
   "keywords": [
     "middleware",
@@ -35,7 +35,11 @@
     "aws lambda middleware",
     "aws lambda chain",
     "chain lambda",
-    "pipe lambda"
+    "pipe lambda",
+    "lambda express",
+    "express middleware lambda",
+    "middleware-express-lambda",
+    "lamda-express-middlewares"
   ],
   "devDependencies": {
     "@types/aws-lambda": "^8.10.72",

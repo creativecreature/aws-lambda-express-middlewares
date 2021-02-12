@@ -1,4 +1,4 @@
-# AWS Lambda middleware
+# Lambda express middlewares
 This package helps you chain AWS lambda functions with an API that is similar to
 Express middlewares.
 
@@ -18,7 +18,7 @@ are *obviously* just for demo puroposes.
 #### Supercharge your context with extra functionality(like a custom user object):
 
 ```js
-import { withMiddlewares } from 'lambda-middleware'
+import { withMiddlewares } from 'lambda-express-middlewares'
 
 const authenticate = async (token) => {
   const user = await authenticaitonService.getUser(token)
@@ -56,7 +56,7 @@ export const handler = withMiddlewares([authMiddleware, orderMiddleware], apiHan
 #### Create a reusable middleware for validating your requests:
 
 ```js
-import { withMiddlewares } from 'lambda-middleware'
+import { withMiddlewares } from 'lambda-express-middlewares'
 
 const orderRegex = new RegExp(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i)
 
@@ -90,7 +90,7 @@ export const handler = withMiddlewares([validateOrderMiddleware], apiHandler)
 #### Your middlewares can wrap the handler, or other middlewares, to do cleanup
 
 ```js
-import { withMiddlewares } from 'lambda-middleware'
+import { withMiddlewares } from 'lambda-express-middlewares'
 
 // Your custom middleware, takes in an additional next function, similar to express.
 const cleanupMiddleware = async (event, context, next) => {
