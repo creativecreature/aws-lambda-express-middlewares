@@ -2,9 +2,10 @@
   "name": "lambda-middleware",
   "version": "1.0.0",
   "description": "Express like middlewares for AWS lambdas",
-  "main": "index.js",
   "author": "Charles Victor Conner",
   "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "volta": {
     "node": "14.15.5",
     "yarn": "1.22.10"
