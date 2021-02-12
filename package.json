@@ -11,7 +11,8 @@
   },
   "scripts": {
     "clean": "scripty",
-    "build": "scripty"
+    "build": "scripty",
+    "test": "scripty"
   },
   "scripty": {
     "path": "./scripts"
