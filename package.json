@@ -1,5 +1,5 @@
 {
-  "name": "lambda-middlewares",
+  "name": "aws-lambda-middlewares",
   "version": "1.0.0",
   "description": "Express like middlewares for AWS lambdas",
   "author": "Charles Victor Conner",
