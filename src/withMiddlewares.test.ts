@@ -8,32 +8,22 @@ type CountContext = Context & { count: number }
 const USERNAME = 'user'
 const EMAIL = 'user@example.com'
 
+// === MOCK HELPER FUNCTIONS ===================================================
 const authenticate = async () => ({ username: USERNAME, email: EMAIL })
 
-const authMiddleware = async <TEvent, TResult>(
-  event: TEvent,
-  context: Context,
-  next: PromiseHandler<TEvent, TResult>,
-): Promise<TResult> => {
+// === MOCK MIDDLEWARE =========================================================
+const authMiddleware = async <TEvent, TResult>(event: TEvent, context: Context, next: PromiseHandler<TEvent, TResult>): Promise<TResult> => {
   const user = await authenticate()
   const userContext: UserContext = { ...context, user }
   return await next(event, userContext)
 }
 
-const incrementMiddleware = async <TEvent, TResult>(
-  event: TEvent,
-  context: Context,
-  next: PromiseHandler<TEvent, TResult>,
-): Promise<TResult> => {
+const incrementMiddleware = async <TEvent, TResult>(event: TEvent, context: Context, next: PromiseHandler<TEvent, TResult>): Promise<TResult> => {
   const countContext: CountContext = { ...context, count: ((context as CountContext).count ?? 0) + 1 }
   return await next(event, countContext)
 }
 
-const exitEarlyMiddleware = async <TEvent, TResult>(
-  event: TEvent,
-  context: Context,
-  next: PromiseHandler<TEvent, TResult>,
-): Promise<TResult> => {
+const exitEarlyMiddleware = async <TEvent, TResult>(event: TEvent, context: Context, next: PromiseHandler<TEvent, TResult>): Promise<TResult> => {
   const numberOfKeys = [...Object.keys(event), ... Object.keys(context)].length
   if (numberOfKeys < 5 ) {
     return { statusCode: 400, body: JSON.stringify({ message: 'There were less than 5 keys.' }) } as unknown as TResult
@@ -42,12 +32,11 @@ const exitEarlyMiddleware = async <TEvent, TResult>(
   return await next(event, context)
 }
 
-const createApiHandlerForContextKey = (key: string) => async (
-  _: APIGatewayProxyEvent,
-  context: Context,
-): Promise<APIGatewayProxyResult> => {
-  return { statusCode: 200, body: JSON.stringify((context as any)[key]) }
-}
+// === MOCK HANDLERS ===========================================================
+const createApiHandlerForContextKey = (key: string) =>
+  async (_: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
+    return { statusCode: 200, body: JSON.stringify((context as any)[key]) }
+  }
 
 describe('WithMiddlewares', () => {
   test('should pipe the request through a middleware for authenticaiton', async () => {
