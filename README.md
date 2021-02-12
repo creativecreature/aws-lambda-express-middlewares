@@ -1,4 +1,4 @@
-# AWS Lambda middlewares
+# AWS Lambda middleware
 This package helps you chain AWS lambda functions with an API that is similar to
 Express middlewares.
 
