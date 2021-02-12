@@ -4,5 +4,9 @@
   "description": "Express like middlewares for AWS lambdas",
   "main": "index.js",
   "author": "Charles Victor Conner",
-  "license": "MIT"
+  "license": "MIT",
+  "volta": {
+    "node": "14.15.5",
+    "yarn": "1.22.10"
+  }
 }
