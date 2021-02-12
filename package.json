@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Charles Victor Conner",
   "license": "MIT",
+  "scripts": {
+    "clean": "scripty",
+    "build": "scripty"
+  },
   "scripty": {
       "path": "./scripts"
   },
