@@ -1,21 +1,17 @@
 # Lambda express middlewares
-This package helps you chain AWS lambda functions with an API that is similar to
-Express middlewares.
+This package allows you to create reusable middleware functions, with a function
+signature that is similar to express. You are then able to order them however you
+want. The middlewares are executed left to right, the last one will invoke your
+handler.
 
-The goal of this package is to help you and your team extract any common
-functionality into new lambda middleware functions. You are then able to
-order them however you want. The middlewares are executed left to right,
-the last one will invoke your handler.
-
-This package has no external dependencies, to avoid adding any bloat to your
+This package has no external dependencies. Therefore, it wont add any bloat to your
 lambda functions.
 
 ## Examples
-Here are some examples for how this package could be used. The middlewares here
-are *obviously* just for demo puroposes.
+Here are some examples on how this package can be used. The middlewares are only
+for demo purposes.
 
-
-#### Supercharge your context with extra functionality(like a custom user object):
+#### Extend your lambda context with additional data (like a custom user object):
 
 ```js
 import { withMiddlewares } from 'lambda-express-middlewares'
